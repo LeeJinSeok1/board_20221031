@@ -5,21 +5,19 @@ import com.its.board.service.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @Controller
+
 public class BoardController {
     @Autowired
     BoardService boardService;
 
     @GetMapping("/save")
     public String savePage() {
-        return "boardSave";
+        return "boardPages/boardSave";
     }
 
     @PostMapping("/save")
@@ -41,8 +39,9 @@ public class BoardController {
     }
 
     @GetMapping("/detail")
-    public String find(@ModelAttribute BoardDTO boardDTO,Model model){
-         BoardDTO result =boardService.find(boardDTO);
+    public String find(@RequestParam("id") Long id,Model model){
+        boardService.hits(id);
+         BoardDTO result =boardService.find(id);
          model.addAttribute("bd",result);
         return  "boardDetail";
     }
@@ -68,10 +67,10 @@ public class BoardController {
         boardService.delete(id);
         return "index";
     }
-    @GetMapping("/hits")
-    public void hits(@RequestParam("id") Long id) {
-        boardService.hits(id);
-
+    @GetMapping("/DetailPage")
+    public String dPage() {
+        return "redirect:find";
     }
+
 
 }

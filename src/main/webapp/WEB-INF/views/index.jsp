@@ -11,12 +11,19 @@
     <title>index.jsp</title>
 <%--    <script src="/resources/js/jqurey.js"></script>--%>
     <link rel="stylesheet" href="/resources/css/bootstrap.rtl.min.css">
+    <style>
+        #a{
+            margin-top: 50px;
+            text-align: center;
+        }
+    </style>
 
 </head>
 <body>
+<jsp:include page="layout/header.jsp" flush="false"></jsp:include>
 <%--<a href="/save">글작성하기</a>--%>
 <%--<a href="/find">글목록</a> <br>--%>
-<div>
+<div class="container" id="a">
 <button class="btn btn-primary" onclick="fun1()">글작성하기</button>
 
 <button class="btn btn-primary" onclick="fun2()">글목록조회</button>
@@ -25,6 +32,7 @@
 
 </body>
 <script>
+
     const fun1 = () =>{
         location.href="/save"
     }

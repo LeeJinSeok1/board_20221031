@@ -9,14 +9,23 @@
 <html>
 <head>
     <title>boardDetail.jsp</title>
+ <link rel="stylesheet" href="/resources/css/bootstrap.rtl.min.css">
 </head>
 <body>
+<jsp:include page="layout/header.jsp" flush="false"></jsp:include>
  <h2>id: ${bd.id}</h2> <br>
  <h2>작성자: ${bd.boardWriter}</h2> <br>
  <h2>비밀번호: ${bd.boardPass}</h2> <br>
  <h2>제목: ${bd.boardTitle}</h2> <br>
  <h2>내용: ${bd.boardContents}</h2> <br>
  <h2>조회수: ${bd.boardHits}</h2> <br>
- <a href="index">돌아가기</a>
+
+<button class="btn btn-primary" onclick="fun4()">목록</button>
+<
 </body>
+<script>
+ const fun4 = () => {
+  location.href="/DetailPage"
+ }
+</script>
 </html>

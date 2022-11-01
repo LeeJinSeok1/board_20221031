@@ -9,8 +9,10 @@
 <html>
 <head>
     <title>Title</title>
+    <link rel="stylesheet" href="/resources/css/bootstrap.rtl.min.css">
 </head>
 <body>
+<jsp:include page="layout/header.jsp" flush="false"></jsp:include>
 <form action="/update" method="post">
    id: <input type="text" value="${bd.id}" name="id" readonly> <br>
    작성자: <input type="text" value="${bd.boardWriter}" readonly> <br>

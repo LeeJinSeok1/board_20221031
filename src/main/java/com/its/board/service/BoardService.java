@@ -23,8 +23,8 @@ public class BoardService {
         return boardRepository.findBoard();
     }
 
-    public BoardDTO find(BoardDTO boardDTO) {
-        return  boardRepository.find(boardDTO);
+    public BoardDTO find(Long id) {
+        return  boardRepository.find(id);
     }
 
     public BoardDTO update(Long id) {

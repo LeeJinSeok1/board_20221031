@@ -20,8 +20,8 @@ public class BoardRepository {
         return  sql.selectList("board.findBoard");
     }
 
-    public BoardDTO find(BoardDTO boardDTO) {
-        return  sql.selectOne("board.find",boardDTO);
+    public BoardDTO find(Long id) {
+        return  sql.selectOne("board.find",id);
     }
 
     public BoardDTO update(Long id) {
