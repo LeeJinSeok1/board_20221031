@@ -28,17 +28,34 @@ public class BoardRepository {
         return  sql.selectOne("board.update",id);
     }
 
-    public int update2(BoardDTO boardDTO) {
-        int result= sql.update("board.update2",boardDTO);
-        return result;
+    public void update2(BoardDTO boardDTO) {
+        sql.update("board.update2",boardDTO);
+
+    }
+
+
+
+    public void hits(Long id) {
+        sql.update("board.hits",id);
+    }
+
+
+
+    public BoardDTO findId(Long id) {
+        return  sql.selectOne("board.findId",id);
+    }
+
+    public BoardDTO ckPass(BoardDTO boardDTO) {
+         BoardDTO result = sql.selectOne("board.ckPass",boardDTO);
+         return  result;
     }
 
     public void delete(Long id) {
         sql.delete("board.delete",id);
     }
 
-
-    public void hits(Long id) {
-        sql.update("board.hits",id);
+    public int ck(BoardDTO boardDTO) {
+        int result = sql.selectOne("board.ck",boardDTO);
+        return result;
     }
 }

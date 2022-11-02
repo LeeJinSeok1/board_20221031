@@ -31,21 +31,40 @@ public class BoardService {
         return boardRepository.update(id);
     }
 
-    public boolean update2(BoardDTO boardDTO) {
-       int result=  boardRepository.update2(boardDTO);
-       if(result>0){
-           return true;
-       }else{
-           return false;
-       }
+    public void update2(BoardDTO boardDTO) {
+        boardRepository.update2(boardDTO);
+    }
+
+
+
+
+    public void hits(Long id) {
+        boardRepository.hits(id);
+    }
+
+
+
+
+    public BoardDTO findId(Long id) {
+        return  boardRepository.findId(id);
+    }
+
+
+    public BoardDTO ckPass(BoardDTO boardDTO) {
+       return boardRepository.ckPass(boardDTO);
+
     }
 
     public void delete(Long id) {
         boardRepository.delete(id);
     }
 
-
-    public void hits(Long id) {
-        boardRepository.hits(id);
+    public boolean ck(BoardDTO boardDTO) {
+        int result = boardRepository.ck(boardDTO);
+        if(result>0){
+            return  true;
+        }else{
+            return false;
+        }
     }
 }

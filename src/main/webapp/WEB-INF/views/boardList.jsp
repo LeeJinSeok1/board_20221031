@@ -33,8 +33,8 @@
         <th>내용</th>
         <th>날짜</th>
         <th>조회수</th>
-        <th>글수정</th>
-        <th>글삭제</th>
+<%--        <th>글수정</th>--%>
+<%--        <th>글삭제</th>--%>
     </tr>
 
     <c:forEach items="${model}" var="bd">
@@ -45,8 +45,8 @@
             <td>${bd.boardContents}</td>
             <td>${bd.boardTime}</td>
             <td>${bd.boardHits}</td>
-            <td><a href="/update?id=${bd.id}" class="btn btn-warning">수정하기</a></td>
-            <td><a href="/delete?id=${bd.id}" class="btn btn-danger">삭제하기</a></td>
+<%--            <td><a href="/update?id=${bd.id}" class="btn btn-warning">수정하기</a></td>--%>
+<%--            <td><a href="/delete?id=${bd.id}" class="btn btn-danger">삭제하기</a></td>--%>
         </tr>
     </c:forEach>
 </table>

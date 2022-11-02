@@ -21,16 +21,27 @@
     <select id="update" parameterType="Long" resultType="Board">
         select*from board_table where id=#{id}
     </select>
-    <update id="update2" parameterType="Board" >
+    <update id="update2" parameterType="Board"  >
         update board_table set boardTitle=#{boardTitle},boardContents=#{boardContents} where id=#{id}
 
     </update>
-    <delete id="delete" parameterType="Long">
-        delete from board_table where id=#{id}
-    </delete>
+
     <update id="hits" parameterType="Long">
         update board_table set boardHits= boardHits +1 where id=#{id}
     </update>
+
+    <select id="findId" parameterType="Long" resultType="Board">
+        select*from board_table where id=#{id}
+    </select>
+    <select id="ckPass" parameterType="Board" resultType="Board">
+        select*from board_table where id=#{id} and boardPass=#{boardPass}
+    </select>
+    <delete id="delete" parameterType="Long">
+        delete from board_table where id=#{id}
+    </delete>
+    <select id="ck" parameterType="Board" resultType="Board">
+        select*from board_table where id=#{id} and boardPass=#{boardPass}
+    </select>
 
 
 
