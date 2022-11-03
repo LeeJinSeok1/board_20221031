@@ -6,14 +6,22 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Map;
 
 @Repository
 public class BoardRepository {
     @Autowired
     private  SqlSessionTemplate sql;
 
-    public int saveBoard(BoardDTO boardDTO) {
-        return  sql.insert("board.saveBoard",boardDTO);
+    public BoardDTO saveBoard(BoardDTO boardDTO) {
+        System.out.println("insert 전 board DTO"+boardDTO);
+         sql.insert("board.saveBoard",boardDTO);
+        System.out.println("insert 후 board DTO"+boardDTO);
+         return  boardDTO;
+    }
+    public void saveFileName(BoardDTO savedBoard) {
+        sql.insert("board.saveFile",savedBoard);
+
     }
 
     public List<BoardDTO> findBoard() {
@@ -57,5 +65,14 @@ public class BoardRepository {
     public int ck(BoardDTO boardDTO) {
         int result = sql.selectOne("board.ck",boardDTO);
         return result;
+    }
+
+
+    public List<BoardDTO> pagingList(Map<String, Integer> pagingParams) {
+        return  sql.selectList("board.pagingList",pagingParams);
+    }
+
+    public int boardCount() {
+        return sql.selectOne("board.boardCount");
     }
 }

@@ -24,6 +24,8 @@
 <%--<a href="/save">글작성하기</a>--%>
 <%--<a href="/find">글목록</a> <br>--%>
 <div class="container" id="a">
+    <a href="paging">페이징목록</a>
+    <a href="paging?page=3">페이징목록</a>
 <button class="btn btn-primary" onclick="fun1()">글작성하기</button>
 
 <button class="btn btn-primary" onclick="fun2()">글목록조회</button>

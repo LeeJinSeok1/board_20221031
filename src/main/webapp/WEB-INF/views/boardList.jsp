@@ -27,7 +27,7 @@
 <div class="container" id="List">
 <table class="table table-striped table-hover text-center">
     <tr>
-        <th>id</th>
+
         <th>작성자</th>
         <th>제목</th>
         <th>내용</th>
@@ -39,7 +39,7 @@
 
     <c:forEach items="${model}" var="bd">
         <tr>
-            <td>${bd.id}</td>
+
             <td>${bd.boardWriter}</td>
             <td><a href="/detail?id=${bd.id}" >${bd.boardTitle}</a></td>
             <td>${bd.boardContents}</td>

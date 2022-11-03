@@ -4,16 +4,23 @@
 
 
 <mapper namespace="board">
-    <insert id="saveBoard" parameterType="Board">
+    <insert id="saveBoard" parameterType="Board" useGeneratedKeys="true" keyProperty="id">
         insert into board_table(boardWriter,boardPass,boardTitle,boardContents) values (#{boardWriter},
                                                                                         #{boardPass},
                                                                                         #{boardTitle},
                                                                                         #{boardContents}
                                                                                                     )
     </insert>
+
+    <insert id="saveFile" parameterType="Board">
+        insert into board_file_table(originalFileName, storedFileName, boardId)
+            values (#{originalFileName}, #{storedFileName}, #{id})
+    </insert>
+
     <select id="findBoard" resultType="Board">
         select*from board_table;
     </select>
+
     <select id="find" parameterType="Long" resultType="Board">
         select*from board_table where id=#{id}
     </select>
@@ -41,6 +48,12 @@
     </delete>
     <select id="ck" parameterType="Board" resultType="Board">
         select*from board_table where id=#{id} and boardPass=#{boardPass}
+    </select>
+    <select id="pagingList" parameterType="java.util.HashMap" resultType="Board">
+        select *from board_table order by id desc limit #{start}, #{limit}
+    </select>
+    <select id="boardCount" resultType="integer">
+        select count(id) from board_table ;
     </select>
 
 

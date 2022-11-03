@@ -19,11 +19,13 @@
 <body>
 <jsp:include page="../layout/header.jsp" flush="false"></jsp:include>
 <div class="container" id="writer">
- <form action="/save" method="post">
+ <form action="/save" method="post" enctype="multipart/form-data">
  작성자 <input type="text" name="boardWriter" class="form-control"> <br>
  글비밀번호 <input type="text" name="boardPass" class="form-control"> <br>
  제목 <input type="text" name="boardTitle" class="form-control"> <br>
  내용<textarea name="boardContents" cols="30" rows="10" class="form-control"></textarea> <br>
+     <input type="file" class="form-control" name="boardFile">
+     //name이 dto랑 똑같아야함
      <input type="submit" value="작성완료" class="btn btn-success">
  </form>
 </div>

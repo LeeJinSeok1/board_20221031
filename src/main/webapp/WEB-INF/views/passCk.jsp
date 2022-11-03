@@ -16,7 +16,7 @@
 
 <%--<form action="/del2" method="get" name="formDel">--%>
     <input type="text" name="boardPass" placeholder="비밀번호 확인" id="pp">
-    <button onclick="fun7()">체크</button>
+    <button onclick="fun7()" class="btn btn-danger">체크</button>
 <%--</form>--%>
 
 </body>

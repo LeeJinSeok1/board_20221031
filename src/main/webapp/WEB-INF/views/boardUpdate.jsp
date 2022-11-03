@@ -11,7 +11,7 @@
     <title>Title</title>
     <link rel="stylesheet" href="/resources/css/bootstrap.rtl.min.css">
     <style>
-        #d{
+        #b{
             margin-top: 50px;
             width: 1000px;
         }
@@ -21,11 +21,11 @@
 <jsp:include page="layout/header.jsp" flush="false"></jsp:include>
 <div class="container" id="b">
 <form action="/update2" method="post" name="formUp">
-   id <input type="text" value="${bd.id}" name="id" readonly class="form-control"> <br>
+    <input type="hidden" value="${bd.id}" name="id" readonly class="form-control"> <br>
    작성자 <input type="text" value="${bd.boardWriter}" readonly class="form-control"> <br>
    비밀번호 <input type="text" name="boardPass" class="form-control" id="aa"> <br>
    제목 <input type="text" value="${bd.boardTitle}" name="boardTitle" class="form-control"> <br>
-   내용 <textarea name="boardContents" value="${bd.boardContents}" cols="30" rows="10" class="form-control"></textarea> <br>
+   내용 <textarea name="boardContents" cols="30" rows="10" class="form-control">${bd.boardContents}</textarea> <br>
 </form>
     <button onclick="fun8()" class="btn btn-success">확인</button>
 </div>
