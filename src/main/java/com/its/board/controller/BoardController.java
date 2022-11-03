@@ -33,10 +33,13 @@ public class BoardController {
 
 
     @GetMapping("/detail")
-    public String find(@RequestParam("id") Long id,Model model){
+    public String find(@RequestParam("id") Long id,
+                       @RequestParam(value = "page", required = false,
+                               defaultValue = "1") int page,Model model){
         boardService.hits(id);
          BoardDTO result =boardService.find(id);
          model.addAttribute("bd",result);
+         model.addAttribute("page",page);
         return  "boardDetail";
     }
 

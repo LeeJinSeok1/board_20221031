@@ -41,7 +41,7 @@
             <tr>
 
                 <td>${bd.boardWriter}</td>
-                <td><a href="/detail?id=${bd.id}" >${bd.boardTitle}</a></td>
+                <td><a href="/detail?id=${bd.id}&page=${paging.page}" >${bd.boardTitle}</a></td>
                 <td>${bd.boardContents}</td>
                 <td>${bd.boardTime}</td>
                 <td>${bd.boardHits}</td>

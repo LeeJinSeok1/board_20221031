@@ -40,7 +40,8 @@
 </body>
 <script>
  const fun4 = () => {
-  location.href="/DetailPage"
+     const page = '${page}';
+  location.href="/paging?page=" + page;
  }
  const fun5 = () => {
   const id ='${bd.id}'
